@@ -1,0 +1,28 @@
+{% extends 'user/index.html' %}
+{% block h_title %}{{ title }}{% endblock %}
+{% block content %}
+				<section class="navig">
+								<div class="user">
+												<p>@{{ user.username }}</p>
+												<hr>
+												{% if user.email %}
+          										<p><b>Email:</b> {{ user.email }}</p>
+												{% endif %}
+												</div>
+								<div class="buttons">
+												<a class="btns" href="{% url 'create' %}">Добавить ссылку</a>
+												<a class="btns" href="{% url 'available' %}">Посмотреть созданные ссылки</a>
+								</div>
+				</section>
+
+				<section class="reg">
+								<h2>Изменить данные<i class="fas fa-arrow-down"></i></h2>
+								<form method="post">
+									{% csrf_token %}
+									{{ updateUserForm.as_p }}
+									<button class="btn" type="submit">Изменить</button>
+								</form>
+				</section>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'user/index.html' %}
+
+{% block h_title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" type="submit">Создать ссылку</button>
+    </form>
+
+
+{% endblock %}
